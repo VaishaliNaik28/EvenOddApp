@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title> Even Odd App By Vaishali Naik </title>
+	<style>
+		* {font-size:50px;font-family: Times New Roman;}
+		.btn { background-color:#800020; 
+		color:white ; 
+		border-radius:20px; 
+		margin-left:50px;}
+		body { background-color:#C2B4E2;}
+		form{border:2px solid black; 
+		width:800px;height:500px;padding:20px;
+		margin:auto;
+		backdrop-filter:blur(10px);
+		border-radius:30px;
+		background:#B399DD;
+		display:block;
+		padding:8px;}
+	</style>
+</head>
+<body>
+<center>
+	<form onsubmit="check()">
+	<h1> Even Odd App </h1>
+	<input type="number" placeholder="enter integer" id="num"/>
+	<br/><br/>
+	<input type="submit" value="M1" class="btn" />
+	<input type="submit" value="M2" class="btn" />
+	<input type="submit" value="M3" class="btn" />
+	<h2 id="msg"/>
+	</form>
+	
+	<script>
+		function check()
+		{
+		event.preventDefault();
+		let ele = document.activeElement.value;
+		let num = document.getElementById("num");
+		let msg = document.getElementById("msg");
+			
+		if (num.value == "")
+		{
+			alert("u didnt enter integer");
+			msg.innerHTML="";
+			num.focus();
+			return;
+		}
+
+		let n = parseInt(num.value);
+
+		if (ele == "M1")
+		{
+			let ans = n % 2 == 0 ? "Even" : "Odd" ;
+			msg.innerHTML = "M1 --> " + ans;
+		}
+		else if (ele == "M2")
+		{
+			let ans = "";
+			if(n % 2 == 0)
+				ans = "Even";
+			else 
+				ans = "Odd";
+			msg.innerHTML = "M2 --> " + ans;
+		}
+		else if (ele == "M3")
+		{
+			let ans = "";
+			switch(n%2)
+			{
+				case 0:		ans = "Even"; break;
+				case 1: 	ans = "Odd"; break;
+				case -1:        ans = "Odd"; break;
+			}
+			msg.innerHTML = "M3 --> " + ans;
+		}
+		}
+	</script>
+</center>
+<span id="PING_IFRAME_FORM_DETECTION" style="display:none;"></span>
+</body>
+</html>
